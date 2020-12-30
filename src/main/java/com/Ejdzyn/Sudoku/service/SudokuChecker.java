@@ -20,6 +20,7 @@ public class SudokuChecker implements SolverService{
 
         checkRow();
         checkColumn();
+        checkGrid();
 
     }
 
@@ -76,5 +77,26 @@ public class SudokuChecker implements SolverService{
     @Override
     public void checkGrid() {
 
+        int gridId=0;
+
+        for(int i = 0 ; i < 3 ; i++) {
+            for (int y = 0; y < 3; y++) {
+                Set<Integer> uniques = new HashSet<>();
+                for(int ii = 0 ; ii < 3 ; ii++) {
+                    for (int yy = 0; yy < 3; yy++) {
+                        int row = (3*i)+ii;
+                        int col = (3*y)+yy;
+                        int val = GAME_TABLE[row][col];
+                        if(!uniques.contains(val)){
+                            uniques.add(val);
+                        } else {
+                            gridErrors.add(gridId);
+                        }
+
+                    }
+                }
+                gridId++;
+            }
+        }
     }
 }

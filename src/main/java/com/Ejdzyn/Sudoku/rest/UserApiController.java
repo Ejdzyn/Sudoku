@@ -25,7 +25,7 @@ public class UserApiController {
 
     @GetMapping("/api/sudoku/verify")
     public ResponseEntity<Map<String, Set<Integer>>> login() {
-        LOGGER.info("--- check login data: {}",sudokuChecker.getErrors());
+        LOGGER.info("--- wrong fields: {}",sudokuChecker.getErrors());
 
         if(sudokuChecker.getErrors().isEmpty()){
             return new ResponseEntity<>(HttpStatus.OK);

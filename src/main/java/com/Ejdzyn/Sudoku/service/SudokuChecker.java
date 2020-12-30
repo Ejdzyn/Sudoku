@@ -56,7 +56,7 @@ public class SudokuChecker implements SolverService{
                 if(!uniques.contains(GAME_TABLE[i][y])){
                    uniques.add(GAME_TABLE[i][y]);
                 }else {
-                    rowErrors.add(i);
+                    rowErrors.add(i+1);
                 }
             }
         }
@@ -69,7 +69,7 @@ public class SudokuChecker implements SolverService{
             for(int y = 0 ; y < 9;++y){
                 if(!uniques.contains(GAME_TABLE[y][i])){
                     uniques.add(GAME_TABLE[y][i]);
-                }else columnErrors.add(i);
+                }else columnErrors.add(i+1);
             }
         }
     }
@@ -77,7 +77,7 @@ public class SudokuChecker implements SolverService{
     @Override
     public void checkGrid() {
 
-        int gridId=0;
+        int gridId=1;
 
         for(int i = 0 ; i < 3 ; i++) {
             for (int y = 0; y < 3; y++) {
